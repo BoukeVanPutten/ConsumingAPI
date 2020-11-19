@@ -1,0 +1,47 @@
+﻿@model WebApp.ViewModels.IndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <p>Result from patching</p>
+    <p>(@(Model.patchResult)</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    EAN (etc)
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Quantity
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.ordererdProducts)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.Gtin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Stock)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
